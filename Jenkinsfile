@@ -2,22 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Code') {
+        stage('Checkout') {
             steps {
                 checkout scm
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Run ESLint') {
             steps {
-                sh 'npx eslint .'
+                bat 'npx eslint .'
             }
         }
     }
 }
+
